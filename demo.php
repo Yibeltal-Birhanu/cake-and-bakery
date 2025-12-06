@@ -128,7 +128,7 @@
         <h2>Bakery</h2>
       <?php
       // PHP: fetch products from database properly
-      $conn = new mysqli('localhost', 'root', '', 'lightcakes_db');
+      require 'dbconn.php';
 
       if ($conn->connect_errno) {
         echo "<p style='color:red;'>Database connection failed: " . htmlspecialchars($conn->connect_error) . "</p>";
