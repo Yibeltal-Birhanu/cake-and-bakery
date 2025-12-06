@@ -49,17 +49,19 @@
         <div class="modal-content">
             <span class="closeBtn" onclick="closeModal('signupModal')">&times;</span>
             <h2>Sign Up</h2>
+           <form action="register.php" method="POST">
+            <input type="text" id="signupName" placeholder="Full Name" require />
+            <input type="email" id="signupEmail" placeholder="Email" require/>
+            <input type="password" id="signupPassword" placeholder="Password" require />
+            <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require/>
 
-            <input type="text" id="signupName" placeholder="Full Name" />
-            <input type="email" id="signupEmail" placeholder="Email" />
-            <input type="password" id="signupPassword" placeholder="Password" />
-            <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" />
-
-            <button onclick="signupUser()">Create Account</button>
+            <input type="submit"  value="Sign Up" name='register' />
 
             <p>Already have an account? 
             <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
+        
             </p>
+            </form>
         </div>
         </div>
 
