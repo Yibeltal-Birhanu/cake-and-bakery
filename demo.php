@@ -32,7 +32,7 @@
         <div class="modal-content">
             <span class="closeBtn" onclick="closeModal('loginModal')">&times;</span>
             <h2>Login</h2>
-
+           <form action="login.php" method="POST">
             <input type="email" id="loginEmail" placeholder="Email" />
             <input type="password" id="loginPassword" placeholder="Password" />
 
@@ -41,6 +41,7 @@
             <p>Don't have an account? 
             <a href="#" onclick="switchModal('loginModal','signupModal')">Signup</a>
             </p>
+            </form>
         </div>
         </div>
 
