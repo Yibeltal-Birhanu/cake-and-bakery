@@ -22,8 +22,9 @@
         </div>
         
         <div class="auth-buttons">
-            <button <a href="#" class="btn login-btn" onclick="openModal('loginModal')">Login</a></button>
-            <button <a href="#" class="btn signup-btn" onclick="openModal('signupModal')">Signup</a></button>
+            <button class="btn login-btn" onclick="openModal('loginModal')">Login</button>
+<button class="btn signup-btn" onclick="openModal('signupModal')">Signup</button>
+
            
         </div>
         <div id="overlay" class="overlay"></div>
@@ -50,10 +51,10 @@
             <span class="closeBtn" onclick="closeModal('signupModal')">&times;</span>
             <h2>Sign Up</h2>
            <form action="register.php" method="POST">
-            <input type="text" id="signupName" placeholder="Full Name" require />
-            <input type="email" id="signupEmail" placeholder="Email" require/>
-            <input type="password" id="signupPassword" placeholder="Password" require />
-            <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require/>
+            <input type="text" id="signupName" placeholder="Full Name" require name='signupName' />
+            <input type="email" id="signupEmail" placeholder="Email" require name='signupEmail'/>
+            <input type="password" id="signupPassword" placeholder="Password" require  name='signupPassword'/>
+            <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
             <input type="submit"  value="Sign Up" name='register' />
 
