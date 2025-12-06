@@ -28,6 +28,7 @@
         <input type="file" id="item_image" name="item_image" accept="image/*" required><br><br>
         
         <input type="submit" value="Add Item">
+        <a href="add_item.php">Back to Admin Panel</a>
     </form>
 </body>
 </html>
