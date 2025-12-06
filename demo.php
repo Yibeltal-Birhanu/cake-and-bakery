@@ -126,119 +126,44 @@
     
     <section class="bakery-product">
         <h2>Bakery</h2>
-       <?php
-// Example dynamic data (later you can replace with database data)
+      <?php
+      // PHP: fetch products from database properly
+      $conn = new mysqli('localhost', 'root', '', 'lightcakes_db');
 
-$products = [
-    "cakes" => [
-        [
-            "id" => 1,
-            "name" => "Chocolate with Strawbary",
-            "price" => 500,
-            "description" => "Rich chocolate cake with creamy frosting and chocolate shavings.",
-            "image" => "Classic Chocolate Cake Recipe - Easy Baking, Moist Dessert (PDF Pattern).jpg"
-        ],
-        [
-            "id" => 2,
-            "name" => "recette simple pour",
-            "price" => 1199,
-            "description" => "Light and fluffy vanilla cake with buttercream frosting.",
-            "image" => "recette simple pour préparer un délicieux gâteau torsadé.jpg"
-        ],
-        [
-            "id" => 3,
-            "name" => "Honey cake",
-            "price" => 2500,
-            "description" => "Classic honey cake with cream frosting.",
-            "image" => "download (21).jpg"
-        ],
-        [
-            "id" => 4,
-            "name" => "Cozy Husband Birthday Cake",
-            "price" => 1500,
-            "description" => "Cozy Husband Birthday Cake Ideas for a Warm and Loving Celebration.",
-            "image" => "Cozy Husband Birthday Cake Ideas for a Warm and Loving Celebration.jpg"
-        ],
-        [
-            "id" => 5,
-            "name" => "Orange Chesses Cake",
-            "price" => 370,
-            "description" => "Orange Chesses Cake sponge cake with fresh orange.",
-            "image" => "Orange Chesses Cake.jpg"
-        ],
-        [
-            "id" => 6,
-            "name" => "Honeycomb",
-            "price" => 299,
-            "description" => "Honeycomb Cheesecake swetty cakes.",
-            "image" => "Honeycomb Cheesecake_ Indulge in This Easy Recipe!.jpg"
-        ]
-    ],
+      if ($conn->connect_errno) {
+        echo "<p style='color:red;'>Database connection failed: " . htmlspecialchars($conn->connect_error) . "</p>";
+        $products = [];
+      } else {
+        $sql = "SELECT * FROM products";
+        $result = $conn->query($sql);
+        $products = [];
 
-    "bakery" => [
-        [
-            "id" => 7,
-            "name" => "Normal",
-            "price" => 250,
-            "description" => "Normal breed for morning brakefast",
-            "image" => "download (20).jpg"
-        ],
-        [
-            "id" => 8,
-            "name" => "Croissants",
-            "price" => 300,
-            "description" => "Sweet and testy suger cookies for events",
-            "image" => "Fresh Croissants Food Photography _ Bakery Branding Image _ Cafe Menu Picture _ Digital Download _ Commercial Use.jpg"
-        ],
-        [
-            "id" => 9,
-            "name" => "Cinnamon Roll",
-            "price" => 99,
-            "description" => "Crispy and testy tosted breed",
-            "image" => "Лето на вкус_ визуалы для креатива _ ViGreyArt _ Midjourney AI Art.jpg"
-        ],
-        [
-            "id" => 10,
-            "name" => "Cheese Dip",
-            "price" => 89,
-            "description" => "Normal slice breed for morning brakfast",
-            "image" => "The Cheese Dip That Will Make You Famous.jpg"
-        ],
-        [
-            "id" => 11,
-            "name" => "Teff cookies",
-            "price" => 109,
-            "description" => "Sweet black Teff bakery with honey and suger",
-            "image" => "Круассан с шоколадной начинкой.jpg"
-        ],
-        [
-            "id" => 12,
-            "name" => "Yeast Rolls",
-            "price" => 45,
-            "description" => "Soft, sweety and sponjy bakery for child",
-            "image" => "Simple 6-Ingredient Yeast Rolls Recipe -.jpg"
-        ]
-    ]
-];
-
-?>
+        if ($result) {
+          while ($row = $result->fetch_assoc()) {
+            $products[] = $row;
+          }
+          $result->free();
+        } else {
+          echo "<p style='color:red;'>Query error: " . htmlspecialchars($conn->error) . "</p>";
+        }
+      }
+    ?>
 
 <div class="card-container">
     <div class="card-container">
-    <?php foreach($products["bakery"] as $product): ?>
-        <div class="card">
-            <img src="<?php echo $product['image']; ?>" 
-                 alt="<?php echo $product['name']; ?>">
-
-            <h1><?php echo $product['name']; ?></h1>
-
-            <p class="price"><?php echo $product['price']; ?> birr</p>
-
-            <p><?php echo $product['description']; ?></p>
-
+     <?php if (empty($products)): ?>
+        <p>No products found.</p>
+      <?php else: ?>
+        <?php foreach ($products as $product): ?>
+          <div class="card">
+            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>"/>
+            <h1><?php echo htmlspecialchars($product['name']); ?></h1>
+            <p class="price"><?php echo htmlspecialchars($product['price']); ?> birr</p>
+            <p><?php echo htmlspecialchars($product['description']); ?></p>
             <p><button onclick="openModal('buyModal')">BUY</button></p>
-        </div>
-    <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
 </div>
 
 </div>
