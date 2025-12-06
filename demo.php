@@ -171,7 +171,7 @@
         <button class="btn btn-secondary">See More</button>
     </section>
 
-  <!-- ===== CHECKOUT / BUY POPUP ===== -->
+  <!-- ===== CHECKOUT / BUY POPUPs ===== -->
 <div id="buyModal" class="modal">
   <div class="modal-content">
     <span class="closeBtn" onclick="closeModal('buyModal')">&times;</span>
