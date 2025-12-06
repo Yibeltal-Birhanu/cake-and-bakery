@@ -34,8 +34,8 @@
             <span class="closeBtn" onclick="closeModal('loginModal')">&times;</span>
             <h2>Login</h2>
            <form action="login.php" method="POST">
-            <input type="email" id="loginEmail" placeholder="Email" />
-            <input type="password" id="loginPassword" placeholder="Password" />
+            <input type="email" id="loginEmail" placeholder="Email" name='email'/>
+            <input type="password" id="loginPassword" placeholder="Password" name='password'/>
 
             <button onclick="loginUser()">Login</button>
 
