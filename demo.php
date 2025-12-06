@@ -87,40 +87,42 @@
 
     <section class="cake-product">
         <h2>Cakes</h2>
+        <?php
+      // PHP: fetch products from database properly
+      require 'dbconn.php';
+
+      if ($conn->connect_errno) {
+        echo "<p style='color:red;'>Database connection failed: " . htmlspecialchars($conn->connect_error) . "</p>";
+        $products = [];
+      } else {
+        $sql = "SELECT * FROM products where item_category='cake'";
+        $result = $conn->query($sql);
+        $products = [];
+
+        if ($result) {
+          while ($row = $result->fetch_assoc()) {
+            $products[] = $row;
+          }
+          $result->free();
+        } else {
+          echo "<p style='color:red;'>Query error: " . htmlspecialchars($conn->error) . "</p>";
+        }
+      }
+    ?>
         <div class="card-container">
-            <div class="card">
-                <img src="download (19).jpg" alt="Chocolate Cake">
-                <h1>Light Chocolate </h1>
-                <p class="price">250 birr</p>
-                <p>Rich chocolate cake with creamy frosting and chocolate shavings.</p>
-                <p><button onclick="openModal('buyModal')">BUY</button></p>
-
-            </div>
-            <div class="card">
-                <img src="recette simple pour préparer un délicieux gâteau torsadé.jpg" alt="Twisted Cake">
-                <h1>Twisted Delight</h1>
-                <p class="price">750 birr</p>
-                <p>Unique twisted design with layers of vanilla and strawberry flavors.</p>
-                <p><button onclick="openModal('buyModal')">BUY</button></p>
-
-            </div>
-            <div class="card">
-                <img src="download (21).jpg" alt="Berry Cake">
-                <h1>Berry Blast</h1>
-                <p class="price">1,199 birr</p>
-                <p>Fresh mixed berries on top of a light sponge cake with cream filling.</p>
-                <p><button onclick="openModal('buyModal')">BUY</button></p>
-
-            </div>
-            <div class="card">
-                <img src="Classic Chocolate Cake Recipe - Easy Baking, Moist Dessert (PDF Pattern).jpg" alt="Special Cake">
-                <h1>Special Celebration</h1>
-                <p class="price">1000 birr</p>
-                <p>Perfect for birthdays with custom decorations and flavors.</p>
-                <p><button onclick="openModal('buyModal')">BUY</button></p>
-
-            </div>
-        </div>
+            <?php if (empty($products)): ?>
+        <p>No products found.</p>
+      <?php else: ?>
+        <?php foreach ($products as $product): ?>
+          <div class="card">
+            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>"/>
+            <h1><?php echo htmlspecialchars($product['name']); ?></h1>
+            <p class="price"><?php echo htmlspecialchars($product['price']); ?> birr</p>
+            <p><?php echo htmlspecialchars($product['description']); ?></p>
+            <p><button onclick="openModal('buyModal')">BUY</button></p>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
         <button class="btn btn-secondary">See More</button>
     </section>
     
@@ -134,7 +136,7 @@
         echo "<p style='color:red;'>Database connection failed: " . htmlspecialchars($conn->connect_error) . "</p>";
         $products = [];
       } else {
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT * FROM products where item_category='bakery'";
         $result = $conn->query($sql);
         $products = [];
 
