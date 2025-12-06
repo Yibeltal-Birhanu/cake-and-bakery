@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Cakes Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home_styel.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            
+            <div class="logo-text">Light<span>Cakes</span></div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="product.html">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <div class="auth-buttons">
+            <button <a href="#" class="btn login-btn" onclick="openModal('loginModal')">Login</a></button>
+            <button <a href="#" class="btn signup-btn" onclick="openModal('signupModal')">Signup</a></button>
+           
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+
+            <input type="email" id="loginEmail" placeholder="Email" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+
+            <button onclick="loginUser()">Login</button>
+
+            <p>Don't have an account? 
+            <a href="#" onclick="switchModal('loginModal','signupModal')">Signup</a>
+            </p>
+        </div>
+        </div>
+
+        <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Sign Up</h2>
+
+            <input type="text" id="signupName" placeholder="Full Name" />
+            <input type="email" id="signupEmail" placeholder="Email" />
+            <input type="password" id="signupPassword" placeholder="Password" />
+            <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" />
+
+            <button onclick="signupUser()">Create Account</button>
+
+            <p>Already have an account? 
+            <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
+            </p>
+        </div>
+        </div>
+
+
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    
+   <section class="hero">
+        <div class="hero-content">
+            <h1>Delicious <span>Light Cakes</span> for Every Part Of your life</h1>
+            <p>Our Cakes and Bakery is sweet like you😍</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Explore Our Cakes</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-container">
+                <img  class="image" src="download (19).jpg" alt="Delicious Cake">
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="cake-product">
+        <h2>Cakes</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="download (19).jpg" alt="Chocolate Cake">
+                <h1>Light Chocolate </h1>
+                <p class="price">250 birr</p>
+                <p>Rich chocolate cake with creamy frosting and chocolate shavings.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="recette simple pour préparer un délicieux gâteau torsadé.jpg" alt="Twisted Cake">
+                <h1>Twisted Delight</h1>
+                <p class="price">750 birr</p>
+                <p>Unique twisted design with layers of vanilla and strawberry flavors.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="download (21).jpg" alt="Berry Cake">
+                <h1>Berry Blast</h1>
+                <p class="price">1,199 birr</p>
+                <p>Fresh mixed berries on top of a light sponge cake with cream filling.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="Classic Chocolate Cake Recipe - Easy Baking, Moist Dessert (PDF Pattern).jpg" alt="Special Cake">
+                <h1>Special Celebration</h1>
+                <p class="price">1000 birr</p>
+                <p>Perfect for birthdays with custom decorations and flavors.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+        </div>
+        <button class="btn btn-secondary">See More</button>
+    </section>
+    
+    <section class="bakery-product">
+        <h2>Bakery</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="brioche.jpg" alt="Croissant">
+                <h1>brioche</h1>
+                <p class="price">80 birr</p>
+                <p>Flaky, buttery croissant perfect with coffee or tea.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="Fresh Croissants Food Photography _ Bakery Branding Image _ Cafe Menu Picture _ Digital Download _ Commercial Use.jpg" alt="Muffin">
+                <h1>Fresh Croissants</h1>
+                <p class="price">100 birr</p>
+                <p>Moist muffin filled with fresh blueberries and a sugar crust.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="Cottage Cheese Bread_ A Heartwarming Family Recipe To Treasure.jpg" alt="Bread">
+                <h1>Cottage Cheese Bread</h1>
+                <p class="price">130 birr</p>
+                <p>Freshly baked artisan bread with a crispy crust and soft interior.</p>
+                <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+            <div class="card">
+                <img src="The Cheese Dip That Will Make You Famous.jpg" alt="Cookie">
+                <h1>Cheese Dip</h1>
+                <p class="price">199 birr</p>
+                <p>Classic cookie with melty chocolate chips and a soft center.</p>
+               <p><button onclick="openModal('buyModal')">BUY</button></p>
+
+            </div>
+        </div>
+        <button class="btn btn-secondary">See More</button>
+    </section>
+
+  <!-- ===== CHECKOUT / BUY POPUP ===== -->
+<div id="buyModal" class="modal">
+  <div class="modal-content">
+    <span class="closeBtn" onclick="closeModal('buyModal')">&times;</span>
+    <h2>Complete Your Order</h2>
+
+    <!-- Customer Info -->
+    <input type="text" id="customerName" placeholder="Full Name" required />
+    <input type="text" id="customerPhone" placeholder="Phone Number" required />
+    <input type="text" id="customerAddress" placeholder="Delivery Address" required />
+    <input type="text" id="customerCity" placeholder="City / Zone" required />
+
+    <!-- Order Info -->
+    <input type="hidden" id="orderItem" value="" />
+    <input type="hidden" id="orderPrice" value="" />
+    <input type="number" id="orderQuantity" placeholder="Quantity" min="1" value="1" required />
+
+    <!-- Payment Method -->
+    <!-- <label for="paymentMethod">Payment Method</label> -->
+    <select id="paymentMethod" onchange="onPaymentMethodChange()" required>
+      <option value="">--Select payment method--</option>
+      <option value="telebirr">Telebirr (Mobile Money)</option>
+      <option value="cbe_birr">CBE Birr</option>
+      <option value="bank_transfer">Bank Transfer</option>
+      <option value="cod">Cash on Delivery (COD)</option>
+    </select>
+
+    <!-- Payment Instructions -->
+    <div id="paymentInfo" style="display: none; margin-top: 10px;">
+      <p id="paymentInstructions"></p>
+      <input type="text" id="paymentRef" placeholder="Payment Reference (if any)" style="display: none;" />
+    </div>
+
+    <button onclick="submitOrder()" class="btn">Place Order</button>
+  </div>
+</div>
+
+
+
+    <section class="About">
+        <div class="about-text">
+            <h2>About Light Cakes Bakery</h2>
+            <br>
+            <p>Welcome to LightCakes and Bakery where every day is fresh and delicious. We bake soft cakes, pastries, 
+                and breads using quality ingredients and lots of love Our goal is simple bring you testy treats that make every moment special.
+            Whether you're celebrating,relaxing, or sharing with friends, we're here to add sweetness to your day.</p>
+        </div>
+        <div class="about-image">
+           <img src="download (21).jpg" alt="Our Bakery">
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Light Cakes Bakery</h3>
+                <p>We create your sweet with a love, also we believe that every moment deserves a sweet celebration </p>
+              
+            </div>
+            <div class="footer-section">
+                <h3>Quick nav</h3>
+                <a href="#">Home</a>
+                <a href="#">Cakes</a>
+                <a href="#">Bakery</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Hawassa Gorgwada Sefer</p>
+                <p><i class="fas fa-phone"></i> 0909202020/ 0909212121</p>
+                <p><i class="fas fa-envelope"></i> info@lightcakes.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8am-10pm, Sun: 8am-11pm</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; IT student wolita sodo.</p>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
