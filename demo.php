@@ -124,6 +124,7 @@
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
+        </div>
         <button class="btn btn-secondary">See More</button>
     </section>
     
