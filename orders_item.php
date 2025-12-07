@@ -35,10 +35,9 @@ $result = $conn->query($sql);
         padding: 12px;
         border-radius: 8px;
         box-shadow: 0 2px 8px var(--muted-shadow);
-        overflow: auto; /* enables horizontal scroll when needed */
+        overflow: auto; 
     }
 
-    /* make the table wide enough for many columns so it scrolls horizontally on small screens */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -63,7 +62,6 @@ $result = $conn->query($sql);
         vertical-align: top;
     }
 
-    /* let long text wrap nicely inside cells */
     table td {
         white-space: normal;
         word-break: break-word;
@@ -78,7 +76,7 @@ $result = $conn->query($sql);
         text-align: center;
         padding: 30px;
         font-size: 18px;
-        color: var(--accent);
+        color: #ff0000ff;
     }
 
     .nav {
@@ -121,17 +119,16 @@ $result = $conn->query($sql);
 </style>
 </head>
 <body>
+   <!-- NAVBAR -->
+<div class="nav">
+    <a href="users.php">Users</a>
+    <a href="orders.php">Orders</a>
+    <a href="admin.php">Upload Item</a>
+</div>
 
-    <!-- NAVBAR -->
-    <div class="nav">
-        <a href="users.php">Users</a>
-        <a href="orders.php">Orders</a>
-        <a href="uploaded_item.php">Upload Item</a>
-    </div>
+<h2>Orders</h2>
 
-    <h2>Registered Users</h2>
-
-    <div class="table-container">
+<div class="table-container">
 
         <?php
         if ($result->num_rows > 0) {
@@ -149,24 +146,19 @@ $result = $conn->query($sql);
                 echo "<td>" . htmlspecialchars($row['product_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['product_price']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['total_amount']) . "</td>";
-                if($row['STATUS'] == 1){
-                    echo "<td>Approved</td>";
-                    echo "<td><a href='status_disapproved.php?order_id=" .$row['order_id'] . "'>Disapproved Status</a></td>";
-                } else {
-                    echo "<td>Disapproved</td>";
-                    echo "<td><a href='status_approved.php?order_id=" .$row['order_id'] . "'>Approved Status</a></td>";
-                }
+                echo "<td><a href='status_approved.php?order_id=" .$row['order_id'] . "'>Approved Status</a></td>";
+                echo "<td><a href='status_disapproved.php?order_id=" .$row['order_id'] . "'>Disapproved Status</a></td>";
                 echo "</tr>";
             }
 
-            echo "</tbody></table>";
+        echo "</tbody></table>";
 
-        } else {
-            echo "<p class='no-data'>No users found.</p>";
-        }
-        ?>
+    } else {
+        echo "<p class='no-data'>No orders found.</p>";
+    }
+    ?>
 
-    </div>
+</div>
 
 </body>
 </html>
