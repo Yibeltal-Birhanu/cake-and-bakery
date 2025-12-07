@@ -1,6 +1,6 @@
 <?php
 require 'dbconn.php';
-$sql = "SELECT customer_name,phone_number, address, zone, payment_method, payment_reference, quantity, product_id, product_name, product_price, total_amount FROM orders";
+$sql = "SELECT customer_name,phone_number, address, zone, payment_method, payment_reference, quantity, product_id, product_name, product_price, total_amount,order_id,STATUS FROM orders";
 $result = $conn->query($sql);
 ?>
 
@@ -85,7 +85,7 @@ $result = $conn->query($sql);
 
         <?php
         if ($result->num_rows > 0) {
-            echo "<table><thead><tr><th>Customer Name</th><th>Phone Number</th><th>Address</th><th>Zone</th><th>Payment Method</th><th>Payment Reference</th><th>Quantity</th><th>Product ID</th><th>Product Name</th><th>Product Price</th><th>Total Amount</th></tr></thead><tbody>";
+            echo "<table><thead><tr><th>Customer Name</th><th>Phone Number</th><th>Address</th><th>Zone</th><th>Payment Method</th><th>Payment Reference</th><th>Quantity</th><th>Product ID</th><th>Product Name</th><th>Product Price</th><th>Total Amount</th><th>Status</th><th>Actions</th></tr></thead><tbody>";
             while($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row['customer_name']) . "</td>";
@@ -99,6 +99,8 @@ $result = $conn->query($sql);
                 echo "<td>" . htmlspecialchars($row['product_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['product_price']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['total_amount']) . "</td>";
+                echo "<td><a href='status_approved.php?order_id=" .$row['order_id'] . "'>Approved Status</a></td>";
+                echo "<td><a href='status_disapproved.php?order_id=" .$row['order_id'] . "'>Disapproved Status</a></td>";
                 echo "</tr>";
             }
 
