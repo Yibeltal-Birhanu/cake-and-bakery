@@ -3,7 +3,6 @@ require 'dbconn.php';
 $sql = "SELECT customer_name,phone_number, address, zone, payment_method, payment_reference, quantity, product_id, product_name, product_price, total_amount,order_id,STATUS FROM orders";
 $result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,7 +126,7 @@ $result = $conn->query($sql);
     <div class="nav">
         <a href="users.php">Users</a>
         <a href="orders.php">Orders</a>
-        <a href="admin.php">Upload Item</a>
+        <a href="uploaded_item.php">Upload Item</a>
     </div>
 
     <h2>Registered Users</h2>
