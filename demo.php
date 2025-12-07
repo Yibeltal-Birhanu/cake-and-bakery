@@ -56,7 +56,7 @@
             <input type="password" placeholder="Password" require  name='signupPassword'/>
             <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
-            <input type="submit"  value="Sign Up" name='register' />
+            <button onclick="signupUser()">Signup</button>
 
             <p>Already have an account? 
             <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
