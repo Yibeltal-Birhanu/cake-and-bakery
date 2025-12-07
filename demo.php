@@ -127,7 +127,6 @@
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
             <p class="price"><?php echo htmlspecialchars($product['price']); ?> birr</p>
             <p><?php echo htmlspecialchars($product['description']); ?></p>
-            <p><?php echo htmlspecialchars($product['id']); ?></p>
             <p><button type="button" onclick="openBuyModal('<?php echo htmlspecialchars($product['name'], ENT_QUOTES); ?>','<?php echo htmlspecialchars($product['price']); ?>','<?php echo htmlspecialchars($product['id']); ?>')">BUY</button></p>
           </div>
         <?php endforeach; ?>
