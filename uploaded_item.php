@@ -311,7 +311,7 @@ require 'dbconn.php';
                 </tr>
                 <?php } ?>
             </tbody>
-        </table>
+        </table><!-- End of Bakery Section -->
     </div>
 </body>
 </html>
