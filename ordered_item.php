@@ -251,7 +251,7 @@ require 'dbconn.php';
                 <tr>
                     <td><img src="<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="table-image"></td>
                     <td><span class="table-name"><?php echo $product_name; ?></span></td>
-                    <td><span class="table-price">$<?php echo number_format($product_price, 2); ?></span></td>
+                    <td><span class="table-price">Birr<?php echo number_format($product_price, 2); ?></span></td>
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
@@ -294,7 +294,7 @@ require 'dbconn.php';
                 <tr>
                     <td><img src="<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="table-image"></td>
                     <td><span class="table-name"><?php echo $product_name; ?></span></td>
-                    <td><span class="table-price">$<?php echo number_format($product_price, 2); ?></span></td>
+                    <td><span class="table-price">Birr<?php echo number_format($product_price, 2); ?></span></td>
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
