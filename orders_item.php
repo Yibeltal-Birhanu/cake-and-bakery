@@ -395,7 +395,7 @@ $result = $conn->query($sql);
     <div class="nav">
         <a href="users.php">👥 Users</a>
         <a href="orders.php" class="active">📦 Orders</a>
-        <a href="admin.php">📤 Upload Item</a>
+        <a href="ordered_item.php">📤 Upload Item</a>
     </div>
 
     <h2>📋 Orders Management</h2>
