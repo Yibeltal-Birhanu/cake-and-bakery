@@ -2,7 +2,6 @@
             document.getElementById(id).style.display = "block";
             document.getElementById("overlay").style.display = "block";
             }
-
  
             function closeModal(id) {
             document.getElementById(id).style.display = "none";
@@ -22,6 +21,9 @@
 
             function signupUser() {
             
+            }
+            function cartModal(){
+                
             }
         function openModal(id) {
     document.getElementById(id).style.display = "block";
@@ -163,8 +165,24 @@
             navbar.appendChild(mobileMenu);
         }
     });
-function openBuyModal(name, price) {
+function openBuyModal(name, price, id) {
     document.getElementById('orderItem').value = name;
     document.getElementById('orderPrice').value = price;
+    // set product id into hidden field
+    const pidEl = document.getElementById('product_id');
+    if (pidEl) pidEl.value = id;
+    // reset quantity and total
+    const qtyEl = document.getElementById('orderQuantity');
+    const totalEl = document.getElementById('totalAmount');
+    const qty = 1;
+    if (qtyEl) qtyEl.value = qty;
+    if (totalEl) totalEl.value = (parseFloat(price) || 0) * qty;
     openModal('buyModal');
+}
+
+function updateTotal() {
+    const price = parseFloat(document.getElementById('orderPrice').value) || 0;
+    const qty = parseInt(document.getElementById('orderQuantity').value, 10) || 0;
+    const totalEl = document.getElementById('totalAmount');
+    if (totalEl) totalEl.value = (price * qty); 
 }

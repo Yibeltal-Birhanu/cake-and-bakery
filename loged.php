@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+$id=$_SESSION['id'];
+if($id)
+    header("Location:demo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +29,6 @@
         </div>
         
         <div class="auth-buttons">
-            <button class="btn login-btn" onclick="openModal('loginModal')">Login</button>
-<button class="btn signup-btn" onclick="openModal('signupModal')">Signup</button>
 <button class="btn signup-btn" onclick="openModal('cartModal')">MY cart</button>
 
            
@@ -75,7 +80,8 @@
             <h3>MY cart</h3>
             <?php
             include 'dbconn.php';
-            $fet='SELECT product_name,product_price,total_amount,STATUS FROM orders';
+            session_start();
+            $fet="SELECT product_name,product_price,total_amount,STATUS FROM orders where id='$id'";
             $res=$conn->query($fet);
             $res->fetch_assoc();
              echo "<table border='1'>";
