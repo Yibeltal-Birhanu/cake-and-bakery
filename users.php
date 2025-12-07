@@ -52,32 +52,40 @@ $result = $conn->query($sql);
             font-size: 18px;
             color: #913500;
         }
-
         .nav {
-            background: #913500;
-            padding: 15px 25px;
-        }
+        background: #913500;
+        padding: 12px 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
 
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 25px;
-            font-weight: bold;
-        }
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background .15s ease;
+    }
 
-        .nav a:hover {
-            text-decoration: underline;
-        }
+    .nav a:hover {
+        background: rgba(255,255,255,0.08);
+    }
+        
+
+    
     </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <div class="nav">
-        <a href="users.php">Users</a>
+     <div class="nav">
+         <a href="users.php">Users</a>
         <a href="orders_item.php">Orders</a>
         <a href="admin.php">Upload Item</a>
-    </div>
+        <a href="ordered_item.php">Uploaded Item</a>   
+</div>
 
     <h2>Registered Users</h2>
 

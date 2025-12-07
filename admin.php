@@ -43,24 +43,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
          /* ===== NAVBAR ===== */
-    nav {
+       .nav {
         background: #913500;
-        padding: 15px 25px;
+        padding: 12px 20px;
         display: flex;
-        gap: 30px;
+        gap: 20px;
+        align-items: center;
     }
 
-    nav a {
+    .nav a {
         color: #fff;
         text-decoration: none;
         font-weight: bold;
-        padding: 8px 14px;
-        border-radius: 5px;
-        transition: 0.3s;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background .15s ease;
     }
 
-    nav a:hover {
-        background: #555;
+    .nav a:hover {
+        background: rgba(255,255,255,0.08);
     }
 
     /* ===== CONTAINER ===== */
@@ -157,13 +158,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <!-- ===== NAVBAR ===== -->
-    <nav>
+   <div class="nav">
          <a href="users.php">Users</a>
         <a href="orders_item.php">Orders</a>
         <a href="admin.php">Upload Item</a>
         <a href="ordered_item.php">Uploaded Item</a>
         
-    </nav>
+</div>
 
     <div class="container">
         <h1>Admin Dashboard</h1>
