@@ -83,7 +83,7 @@
         </div>
         <div class="hero-image">
             <div class="image-container">
-                <img  class="image" src="download (19).jpg" alt="Delicious Cake">
+                <img  class="image" src="photos/download (19).jpg" alt="Delicious Cake">
                 
             </div>
         </div>
@@ -198,7 +198,7 @@
 
     <!-- Payment Method -->
     <!-- <label for="paymentMethod">Payment Method</label> -->
-    <select id="paymentMethod" onchange="onPaymentMethodChange()" required>
+   <select name="payment_method" id="paymentMethod" onchange="onPaymentMethodChange()" required>
       <option value="" name='payment_method'>--Select payment method--</option>
       <option value="telebirr">Telebirr (Mobile Money)</option>
       <option value="cbe_birr">CBE Birr</option>
@@ -209,11 +209,12 @@
     <!-- Payment Instructions -->
     <div id="paymentInfo" style="display: none; margin-top: 10px;">
       <p id="paymentInstructions"></p>
-      <input type="text" id="paymentRef" placeholder="Payment Reference (if any)" style="display: none;" />
+      <input type="text" id="paymentRef" placeholder="Payment Reference (if any)" style="display: none;" name='paymentRef'/>
         
     </div>
 
-    <button onclick="submitOrder()" class="btn" name='order'>Place Order</button>
+    <button type="submit" class="btn" name="order">Place Order</button>
+
     </form>
   </div>
 </div>

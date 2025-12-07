@@ -163,3 +163,8 @@
             navbar.appendChild(mobileMenu);
         }
     });
+function openBuyModal(name, price) {
+    document.getElementById('orderItem').value = name;
+    document.getElementById('orderPrice').value = price;
+    openModal('buyModal');
+}
