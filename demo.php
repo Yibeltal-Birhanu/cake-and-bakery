@@ -24,7 +24,7 @@
         <div class="auth-buttons">
             <button class="btn login-btn" onclick="openModal('loginModal')">Login</button>
 <button class="btn signup-btn" onclick="openModal('signupModal')">Signup</button>
-<button class="btn signup-btn" onclick="openModal('cartModal')">MY cart</button>
+<button class="btn signup-btn" onclick="openModal('loginModal')">MY cart</button>
 
            
         </div>
@@ -38,7 +38,7 @@
             <input type="email" id="loginEmail" placeholder="Email" name='email'/>
             <input type="password" id="loginPassword" placeholder="Password" name='password'/>
 
-            <button type="submit">Login</button>
+            <button onclick="loginUser()">Login</button>
 
             <p>Don't have an account? 
             <a href="#" onclick="switchModal('loginModal','signupModal')">Signup</a>
@@ -57,7 +57,7 @@
             <input type="password" placeholder="Password" require  name='signupPassword'/>
             <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
-            <button type="submit">Signup</button>
+            <button onclick="signupUser()">Signup</button>
 
             <p>Already have an account? 
             <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
@@ -68,44 +68,7 @@
         </div>
 
 
-         <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="closeBtn" onclick="closeModal('cartModal')">&times;</span>
-           
-            <h3>MY cart</h3>
-            <?php
-            include 'dbconn.php';
-            $fet='SELECT product_name,product_price,total_amount,STATUS FROM orders';
-            $res=$conn->query($fet);
-            $res->fetch_assoc();
-             echo "<table border='1'>";
-              echo "<tr><th>Product Name</th><th>Price</th><th>total</th><th>Activity</th><th>Status</th></tr>";
-            foreach($res  as $row){
-              echo "<tr>";
-              echo '<td>';
-              echo $row['product_name'];
-              echo '</td>';
-              echo '<td>';
-              echo $row['product_price'];
-              echo '</td>';
-              echo '<td>';
-              echo $row['total_amount'];
-              echo '</td>';
-              echo '<td>';
-              echo "<a href='cancel.php'>Cancel Order</a>";
-              echo '</td>';
-               echo '<td>';
-              if($row['STATUS'])
-                echo "Approved";
-              else echo "canceld";
-              echo '</td>';
-              echo "</tr>";
-              
-            }
-              echo "</table>";
-            ?>
-        </div>
-        </div>
+        
 
 
         <div class="hamburger">
