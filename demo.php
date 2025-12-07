@@ -16,7 +16,7 @@
         
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="product.html">Products</a>
+            <a href="#products">Products</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
         </div>
@@ -93,7 +93,7 @@
         </div>
     </section>
 
-    <section class="cake-product">
+    <section class="cake-product" id="products">
         <h2>Cakes</h2>
         <?php
       // PHP: fetch products from database properly
