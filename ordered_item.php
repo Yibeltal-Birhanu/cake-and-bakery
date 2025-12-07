@@ -255,9 +255,8 @@ require 'dbconn.php';
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-view">View</button>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Delete</button>
+                             <a href='order_update.php?id=<?php echo $row['id']; ?>'>Edit</a>
+                    <a href='order_delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
                         </div>
                     </td>
                 </tr>
@@ -299,9 +298,8 @@ require 'dbconn.php';
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-view">View</button>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Delete</button>
+                    <a href='order_update.php?id=<?php echo $row['id']; ?>'>Edit</a>
+                    <a href='order_delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
                         </div>
                     </td>
                 </tr>
