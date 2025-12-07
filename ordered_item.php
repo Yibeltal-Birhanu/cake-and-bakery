@@ -9,32 +9,6 @@ require 'dbconn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Display</title>
     <style>
-        body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        margin: 0;
-        }
-        .nav {
-        background: #913500;
-        padding: 12px 20px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        }
-
-        .nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: background .15s ease;
-        }
-
-        .nav a:hover {
-        background: rgba(255,255,255,0.08);
-    }
-
         /* Table styling */
         .products-table {
             width: 100%;
@@ -47,14 +21,14 @@ require 'dbconn.php';
         }
         
         .products-table th {
-            background: #913500;
+            background: #2c3e50;
             color: white;
             padding: 18px 15px;
             text-align: left;
             font-size: 1.1em;
             font-weight: 600;
             font-family: 'Arial', sans-serif;
-            /* border-bottom: 3px solid #000000ff; */
+            border-bottom: 3px solid #e74c3c;
         }
         
         .products-table td {
@@ -75,13 +49,13 @@ require 'dbconn.php';
         .category-header {
             text-align: center;
             font-size: 1.8em;
-            color: #913500;
+            color: #2c3e50;
             margin: 40px 0 10px;
             font-family: 'Georgia', serif;
-            /* background: #f8f9fa; */
+            background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
-            /* border-left: 5px solid #3498db; */
+            border-left: 5px solid #3498db;
         }
         
         /* Image in table */
@@ -146,12 +120,12 @@ require 'dbconn.php';
         }
         
         .btn-edit {
-            background: #70e800ff;
+            background: #f39c12;
             color: white;
         }
         
         .btn-edit:hover {
-            background: #3f9200ff;
+            background: #d68910;
         }
         
         .btn-delete {
@@ -250,12 +224,6 @@ require 'dbconn.php';
     </style>
 </head>
 <body>
-    <div class="nav">
-     <a href="users.php">Users</a>
-        <a href="orders_item.php">Orders</a>
-        <a href="admin.php">Upload Item</a>
-        <a href="ordered_item.php">Uploaded Item</a>
-</div>
     <div class="table-container">
         <!-- Cakes Section -->
         <h2 class="category-header">Our Cakes</h2>
@@ -283,13 +251,12 @@ require 'dbconn.php';
                 <tr>
                     <td><img src="<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="table-image"></td>
                     <td><span class="table-name"><?php echo $product_name; ?></span></td>
-                    <td><span class="table-price">Birr<?php echo number_format($product_price, 2); ?></span></td>
+                    <td><span class="table-price">$<?php echo number_format($product_price, 2); ?></span></td>
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-view">View</button>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Delete</button>
+                             <a href='order_update.php?id=<?php echo $row['id']; ?>'>Edit</a>
+                    <a href='order_delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
                         </div>
                     </td>
                 </tr>
@@ -327,13 +294,12 @@ require 'dbconn.php';
                 <tr>
                     <td><img src="<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="table-image"></td>
                     <td><span class="table-name"><?php echo $product_name; ?></span></td>
-                    <td><span class="table-price">Birr<?php echo number_format($product_price, 2); ?></span></td>
+                    <td><span class="table-price">$<?php echo number_format($product_price, 2); ?></span></td>
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-view">View</button>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Delete</button>
+                    <a href='order_update.php?id=<?php echo $row['id']; ?>'>Edit</a>
+                    <a href='order_delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
                         </div>
                     </td>
                 </tr>
