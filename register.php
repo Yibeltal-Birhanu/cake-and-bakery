@@ -11,7 +11,7 @@ if(isset($_POST['signupName'])) {
         exit;
     }
    
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hash')";
+    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email','$hash')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";

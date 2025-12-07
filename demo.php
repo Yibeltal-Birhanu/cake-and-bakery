@@ -53,7 +53,7 @@
            <form action="register.php" method="POST">
             <input type="text" id="signupName" placeholder="Full Name" require name='signupName' />
             <input type="email" id="signupEmail" placeholder="Email" require name='signupEmail'/>
-            <input type="password" id="signupPassword" placeholder="Password" require  name='signupPassword'/>
+            <input type="password" placeholder="Password" require  name='signupPassword'/>
             <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
             <input type="submit"  value="Sign Up" name='register' />
@@ -185,10 +185,11 @@
     <h2>Complete Your Order</h2>
 
     <!-- Customer Info -->
-    <input type="text" id="customerName" placeholder="Full Name" required />
-    <input type="text" id="customerPhone" placeholder="Phone Number" required />
-    <input type="text" id="customerAddress" placeholder="Delivery Address" required />
-    <input type="text" id="customerCity" placeholder="City / Zone" required />
+     <form method='post' action='order.php'>
+    <input type="text" name="fname" id="" require placeholder="Full Name">
+    <input type="text" id="customerPhone" placeholder="Phone Number" required name='pno' />
+    <input type="text" id="customerAddress" placeholder="Delivery Address" required name='address'/>
+    <input type="text" id="customerCity" placeholder="City / Zone" required name='zone'/>
 
     <!-- Order Info -->
     <input type="hidden" id="orderItem" value="" />
@@ -198,7 +199,7 @@
     <!-- Payment Method -->
     <!-- <label for="paymentMethod">Payment Method</label> -->
     <select id="paymentMethod" onchange="onPaymentMethodChange()" required>
-      <option value="">--Select payment method--</option>
+      <option value="" name='payment_method'>--Select payment method--</option>
       <option value="telebirr">Telebirr (Mobile Money)</option>
       <option value="cbe_birr">CBE Birr</option>
       <option value="bank_transfer">Bank Transfer</option>
@@ -209,9 +210,11 @@
     <div id="paymentInfo" style="display: none; margin-top: 10px;">
       <p id="paymentInstructions"></p>
       <input type="text" id="paymentRef" placeholder="Payment Reference (if any)" style="display: none;" />
+        
     </div>
 
-    <button onclick="submitOrder()" class="btn">Place Order</button>
+    <button onclick="submitOrder()" class="btn" name='order'>Place Order</button>
+    </form>
   </div>
 </div>
 
