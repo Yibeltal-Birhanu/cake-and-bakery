@@ -149,8 +149,13 @@ $result = $conn->query($sql);
                 echo "<td>" . htmlspecialchars($row['product_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['product_price']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['total_amount']) . "</td>";
-                echo "<td><a href='status_approved.php?order_id=" .$row['order_id'] . "'>Approved Status</a></td>";
-                echo "<td><a href='status_disapproved.php?order_id=" .$row['order_id'] . "'>Disapproved Status</a></td>";
+                if($row['STATUS'] == 1){
+                    echo "<td>Approved</td>";
+                    echo "<td><a href='status_disapproved.php?order_id=" .$row['order_id'] . "'>Disapproved Status</a></td>";
+                } else {
+                    echo "<td>Disapproved</td>";
+                    echo "<td><a href='status_approved.php?order_id=" .$row['order_id'] . "'>Approved Status</a></td>";
+                }
                 echo "</tr>";
             }
 
