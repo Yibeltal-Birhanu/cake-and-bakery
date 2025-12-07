@@ -287,7 +287,8 @@ require 'dbconn.php';
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-edit">Update</button>
+                            <button class="btn btn-view">View</button>
+                            <button class="btn btn-edit">Edit</button>
                             <button class="btn btn-delete">Delete</button>
                         </div>
                     </td>
@@ -330,8 +331,8 @@ require 'dbconn.php';
                     <td><span class="table-description"><?php echo $description; ?></span></td>
                     <td>
                         <div class="action-buttons">
-                            
-                            <button class="btn btn-edit">Update</button>
+                            <button class="btn btn-view">View</button>
+                            <button class="btn btn-edit">Edit</button>
                             <button class="btn btn-delete">Delete</button>
                         </div>
                     </td>

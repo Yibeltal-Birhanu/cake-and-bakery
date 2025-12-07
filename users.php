@@ -77,7 +77,6 @@ $result = $conn->query($sql);
         <a href="users.php">Users</a>
         <a href="orders_item.php">Orders</a>
         <a href="admin.php">Upload Item</a>
-        <a href="ordered_item.php">Uploaded Item</a>
     </div>
 
     <h2>Registered Users</h2>
