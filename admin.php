@@ -158,8 +158,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- ===== NAVBAR ===== -->
     <nav>
-        <a href="users.php">Users</a>
+         <a href="users.php">Users</a>
         <a href="orders_item.php">Orders</a>
+        <a href="admin.php">Upload Item</a>
+        <a href="ordered_item.php">Uploaded Item</a>
         
     </nav>
 
