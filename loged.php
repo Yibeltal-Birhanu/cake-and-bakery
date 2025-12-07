@@ -2,7 +2,7 @@
 <?php
 session_start();
 $id=$_SESSION['id'];
-if($id)
+if(!$id)
     header("Location:demo.php");
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ if($id)
             <input type="email" id="loginEmail" placeholder="Email" name='email'/>
             <input type="password" id="loginPassword" placeholder="Password" name='password'/>
 
-            <button onclick="loginUser()">Login</button>
+            <button type="submit">Login</button>
 
             <p>Don't have an account? 
             <a href="#" onclick="switchModal('loginModal','signupModal')">Signup</a>
@@ -62,7 +62,7 @@ if($id)
             <input type="password" placeholder="Password" require  name='signupPassword'/>
             <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
-            <button onclick="signupUser()">Signup</button>
+            <button type="submit">Signup</button>
 
             <p>Already have an account? 
             <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
@@ -80,7 +80,7 @@ if($id)
             <h3>MY cart</h3>
             <?php
             include 'dbconn.php';
-            session_start();
+            // session already started at top of this file; do not start again
             $fet="SELECT product_name,product_price,total_amount,STATUS FROM orders where id='$id'";
             $res=$conn->query($fet);
             $res->fetch_assoc();

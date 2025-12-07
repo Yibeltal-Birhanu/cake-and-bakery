@@ -2,6 +2,11 @@
 include 'dbconn.php';
 session_start();
 if(isset($_POST['order'])){
+    if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+        echo "Error: you must be logged in to place an order.<br>";
+        echo "<a href='demo.php'>Go to login</a>";
+        exit;
+    }
     // For debugging: safely display received values
     function val($k) { return isset($_POST[$k]) ? htmlspecialchars($_POST[$k]) : '(missing)'; }
     echo "Name: " . val('fname') . "<br>";

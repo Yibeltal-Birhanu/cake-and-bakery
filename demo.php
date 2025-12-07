@@ -38,7 +38,7 @@
             <input type="email" id="loginEmail" placeholder="Email" name='email'/>
             <input type="password" id="loginPassword" placeholder="Password" name='password'/>
 
-            <button onclick="loginUser()">Login</button>
+            <button type="submit">Login</button>
 
             <p>Don't have an account? 
             <a href="#" onclick="switchModal('loginModal','signupModal')">Signup</a>
@@ -57,7 +57,7 @@
             <input type="password" placeholder="Password" require  name='signupPassword'/>
             <input type="password" id="confirmsignupPassword" placeholder="Confirm Password" require name='confirm'/>
 
-            <button onclick="signupUser()">Signup</button>
+            <button type="submit">Signup</button>
 
             <p>Already have an account? 
             <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a>
