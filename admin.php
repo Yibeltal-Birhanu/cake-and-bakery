@@ -42,81 +42,116 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background: #f4f4f4;
         }
 
-        /* ===== NAVBAR ===== */
-        nav {
-            background: #913500;
-            padding: 15px 25px;
-            display: flex;
-            gap: 30px;
-        }
+         /* ===== NAVBAR ===== */
+    nav {
+        background: #913500;
+        padding: 15px 25px;
+        display: flex;
+        gap: 30px;
+    }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 14px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
 
-        nav a:hover {
-            background: #555;
-        }
+    nav a:hover {
+        background: #555;
+    }
 
-        /* ===== CONTAINER ===== */
-        .container {
-            margin: 30px auto;
-            width: 80%;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #e7e7e7ff;
-        }
+    /* ===== CONTAINER ===== */
+    .container {
+        margin: 30px auto;
+        max-width: 900px;
+        width: 90%;
+        background: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
 
-        h1 {
-            margin-top: 0;
-        }
+    h1 {
+        margin-top: 0;
+    }
 
-        label {
-            font-weight: bold;
-        }
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 12px;
+    }
 
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+    /* form layout */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 
-        input[type="file"] {
-            padding: 5px;
-        }
+    .form-row {
+        display: flex;
+        gap: 12px;
+    }
 
+    /* make inputs grow and stack on small screens */
+    .form-row > * {
+        flex: 1 1 0;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    input[type="file"] {
+        padding: 5px;
+    }
+
+    input[type="submit"] {
+        background: #913500;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        width: 200px;
+        font-size: 16px;
+        padding: 10px 14px;
+        border-radius: 6px;
+    }
+
+    input[type="submit"]:hover {
+        background: #c84900ff;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-left: 20px;
+        text-decoration: none;
+        color: #913500;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    /* small screens: stack the form rows */
+    @media (max-width: 600px) {
+        .form-row {
+            flex-direction: column;
+        }
         input[type="submit"] {
-            background: #913500;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 200px;
-            font-size: 16px;
+            width: 100%;
         }
+    }
 
-        input[type="submit"]:hover {
-            background: #c84900ff;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-left: 20px;
-            text-decoration: none;
-            color: #913500;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -144,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <textarea id="item_description" name="item_description" rows="4" required></textarea>
 
             <label for="select_catagory">Select Category:</label>
-             <select name="item_category" required>
+            <select name="item_category" required>
             <option value="" disabled selected>Select Category</option>
             <option value="cake">Cake</option>
             <option value="bakery">Bakery</option>

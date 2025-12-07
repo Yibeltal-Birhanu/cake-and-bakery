@@ -10,65 +10,116 @@ $result = $conn->query($sql);
     <title>Users List</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-        }
+    :root {
+        --accent: #913500;
+        --muted-shadow: rgba(0,0,0,0.08);
+        --container-max: 1100px;
+    }
 
-        h2 {
-            text-align: center;
-            margin-top: 30px;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+    }
 
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        color: var(--accent);
+    }
+
+    .table-container {
+        max-width: var(--container-max);
+        width: 94%;
+        margin: 30px auto;
+        background: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px var(--muted-shadow);
+        overflow: auto; /* enables horizontal scroll when needed */
+    }
+
+    /* make the table wide enough for many columns so it scrolls horizontally on small screens */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1100px;
+    }
+
+    table thead {
+        background: var(--accent);
+        color: #fff;
+    }
+
+    table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        text-align: left;
+    }
+
+    table th, table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    /* let long text wrap nicely inside cells */
+    table td {
+        white-space: normal;
+        word-break: break-word;
+        max-width: 280px;
+    }
+
+    table tbody tr:hover {
+        background: #fafafa;
+    }
+
+    .no-data {
+        text-align: center;
+        padding: 30px;
+        font-size: 18px;
+        color: var(--accent);
+    }
+
+    .nav {
+        background: var(--accent);
+        padding: 12px 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background .15s ease;
+    }
+
+    .nav a:hover {
+        background: rgba(255,255,255,0.08);
+    }
+
+    /* small screens adjustments */
+    @media (max-width: 700px) {
         .table-container {
-            width: 80%;
-            margin: 30px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            padding: 8px;
+            width: 98%;
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table thead {
-            background: #913500;
-            color: #fff;
+            min-width: 900px;
         }
 
         table th, table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
+            padding: 10px 8px;
+            font-size: 13px;
         }
-
-        .no-data {
-            text-align: center;
-            padding: 30px;
-            font-size: 18px;
-            color: #913500;
-        }
-
-        .nav {
-            background: #913500;
-            padding: 15px 25px;
-        }
-
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 25px;
-            font-weight: bold;
-        }
-
-        .nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
