@@ -1,3 +1,36 @@
+<?php
+require 'dbconn.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $item_name = $_POST['item_name'];
+    $item_price = $_POST['item_price'];
+    $item_description = $_POST['item_description'];
+    $item_category = $_POST['item_category'];
+
+    // ---- VERY SIMPLE FILE UPLOAD ----
+    $fileName = $_FILES['item_image']['name'];
+    $tmpName  = $_FILES['item_image']['tmp_name'];
+
+    // just store image with original name (unsafe but simple)
+    $uploadFolder = "uploaded_images/";
+    $destination = $uploadFolder . $fileName;
+
+    // move uploaded file
+    move_uploaded_file($tmpName, $destination);
+
+    // ---- SIMPLE DB INSERT ----
+    $sql = "INSERT INTO products (name, price, image, description, item_category)
+            VALUES ('$item_name', '$item_price', '$destination', '$item_description', '$item_category')";
+
+    if ($conn->query($sql)) {
+        echo "Item added successfully!";
+    } else {
+        echo "Error: " . $conn->error;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,7 +134,7 @@
 
         <h3>Add New Item</h3>
 
-        <form action="add_item.php" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             
             <label for="item_name">Item Name:</label>
             <input type="text" id="item_name" name="item_name" required>
@@ -111,6 +144,11 @@
 
             <label for="item_description">Item Description:</label>
             <textarea id="item_description" name="item_description" rows="4" required></textarea>
+
+             <select name="item_category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="cake">Cake</option>
+            <option value="bakery">Bakery</option>
 
             <label for="item_image">Item Image:</label>
             <input type="file" id="item_image" name="item_image" accept="image/*" required>
