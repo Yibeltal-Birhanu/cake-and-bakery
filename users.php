@@ -75,8 +75,8 @@ $result = $conn->query($sql);
     <!-- NAVBAR -->
     <div class="nav">
         <a href="users.php">Users</a>
-        <a href="orders.php">Orders</a>
-        <a href="admin.php">Upload Item</a>
+        <a href="orders_item.php">Orders</a>
+        <a href="ordered_item.php">Upload Item</a>
     </div>
 
     <h2>Registered Users</h2>
