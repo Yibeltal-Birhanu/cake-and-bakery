@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background: #fff;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px #913500;
+            box-shadow: 0 2px 8px #e7e7e7ff;
         }
 
         h1 {
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         input[type="submit"] {
-            background: #007bff;
+            background: #913500;
             color: white;
             border: none;
             cursor: pointer;
@@ -104,14 +104,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         input[type="submit"]:hover {
-            background: #0056c2;
+            background: #c84900ff;
         }
 
         .back-link {
             display: inline-block;
             margin-left: 20px;
             text-decoration: none;
-            color: #007bff;
+            color: #913500;
         }
 
         .back-link:hover {
@@ -130,8 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <h1>Admin Dashboard</h1>
-        <p>Welcome to the admin panel. Use the navigation links above to manage users, orders, and upload products.</p>
-
         <h3>Add New Item</h3>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -145,6 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="item_description">Item Description:</label>
             <textarea id="item_description" name="item_description" rows="4" required></textarea>
 
+            <label for="select_catagory">Select Category:</label>
              <select name="item_category" required>
             <option value="" disabled selected>Select Category</option>
             <option value="cake">Cake</option>
